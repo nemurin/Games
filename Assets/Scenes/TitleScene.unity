@@ -214,8 +214,9 @@ GameObject:
   - component: {fileID: 748008006}
   - component: {fileID: 748008008}
   - component: {fileID: 748008007}
+  - component: {fileID: 748008009}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Game_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,6 +279,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748008005}
   m_CullTransparentMesh: 0
+--- !u!114 &748008009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748008005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7440ad8bbad4014695f0e04ed13f81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 748008007}
+  speed: 0.01
 --- !u!1 &1340041488
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +479,7 @@ GameObject:
   - component: {fileID: 1845518176}
   - component: {fileID: 1845518175}
   - component: {fileID: 1845518174}
+  - component: {fileID: 1845518177}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -519,3 +535,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1845518177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845518173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588a0c3ec702a9543bf4d725f40b4c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: Scene1
