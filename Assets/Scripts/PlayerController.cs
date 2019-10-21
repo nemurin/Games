@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     private bool jumping;
     public bool death;
     public bool isGround;
-    public float vely;
+    public Animator animator;
+    public bool left = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.speed = 0;
         if (Input.GetKey(KeyCode.D)) {
-            PlayerRigid.velocity=new Vector2(speed,PlayerRigid.velocity.y);
+            animator.speed = 1;
+            left = false;
+            PlayerRigid.velocity=new Vector2(speed,PlayerRigid.velocity.y);          
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
-            PlayerRigid.velocity = new Vector2(-speed, PlayerRigid.velocity.y);
+            animator.speed = 1;
+            left = true;
+            PlayerRigid.velocity = new Vector2(-speed, PlayerRigid.velocity.y);           
         }
+        animator.SetBool("left", left);
         if (Input.GetKeyDown(KeyCode.W)&&isGround)
         {
             PlayerRigid.AddForce(new Vector2(0,jumpspeed));
