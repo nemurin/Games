@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpspeed;
     private bool jumping;
     public bool death;
+    public bool isGround;
+    public float vely;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +28,10 @@ public class PlayerController : MonoBehaviour
         {
             PlayerRigid.velocity = new Vector2(-speed, PlayerRigid.velocity.y);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W)&&isGround)
         {
             PlayerRigid.AddForce(new Vector2(0,jumpspeed));
+            isGround = false;
         }
         if (death == true)
         {
@@ -40,5 +43,10 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("OnCollisionEnter2D: " + collision.gameObject.name);
         if(collision.gameObject.tag=="Needle")death = true;
+        if (collision.gameObject.tag == "Ground") { isGround = true; }
+    }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground") isGround = true;
     }
 }
