@@ -19,11 +19,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.D)) {
-            transform.Translate(speed, 0, 0);
+            PlayerRigid.velocity=new Vector2(5,PlayerRigid.velocity.y);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-speed, 0, 0);
+            PlayerRigid.velocity = new Vector2(-5, PlayerRigid.velocity.y);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
